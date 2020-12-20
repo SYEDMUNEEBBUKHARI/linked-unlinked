@@ -1,3 +1,7 @@
+//run node users.js
+const express=require('express');
+let $Port=9000;
+const unlinked =require('./unlinked.js');
 const allUsers = [
     {
         id: 100,
@@ -47,3 +51,10 @@ const linked = [
         name: "Mueez Ali"
     },
 ]
+const app=express();
+const data=unlinked.unlinked(allUsers,linked);
+console.log("unlinked employees are",data);
+app.listen($Port,()=>{
+    console.log(`server running on ${$Port}`);
+})
+
